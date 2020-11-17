@@ -20,19 +20,21 @@ function showPage(list, page) {
 
        for(let i = firstStudentOnPage; i < lastStudentOnPage; i++){
           // inside the loop create a conditional to display the proper students
-          elem.innerHTML += `
+          if(list[i]){
+            elem.innerHTML += `
           
-              <li class="student-item cf">
-                 <div class="student-details">
-                    <img class="avatar" src="${list[i]['picture']['large']}" alt="Profile Picture">
-                    <h3>${list[i]['name'].title} ${list[i]['name'].first} ${list[i]['name'].last}</h3>
-                    <span class="email">${list[i]['email']}</span>
-                 </div>
-                 <div class="joined-details">
-                    <span class="date">Joined 12-15-2005</span>
-                 </div>
-              </li>
-          `;
+            <li class="student-item cf">
+               <div class="student-details">
+                  <img class="avatar" src="${list[i]['picture']['large']}" alt="Profile Picture">
+                  <h3>${list[i]['name'].title} ${list[i]['name'].first} ${list[i]['name'].last}</h3>
+                  <span class="email">${list[i]['email']}</span>
+               </div>
+               <div class="joined-details">
+                  <span class="date">Joined 12-15-2005</span>
+               </div>
+            </li>
+        `;
+          }
         }
     
   }
@@ -65,7 +67,9 @@ function showPage(list, page) {
  
     // give the first pagination button a class of "active"
     let active = document.getElementsByTagName('button')[1];
-    active.className = 'active';
+    if(active){
+        active.className = 'active';
+    }
  
   
     // create an event listener on the `link-list` element
@@ -96,7 +100,7 @@ searchBar.addEventListener('keyup', (e) => {
    const searchString = e.target.value;
    if(searchString != ''){
     const dataf = data.filter(card => {
-        return card.email.includes(searchString || card.name.first.includes(searchString) || card.name.last.includes(searchString));
+        return card.email.includes(searchString) || card.name.first.includes(searchString) || card.name.last.includes(searchString);
         
      }); 
      list = dataf;

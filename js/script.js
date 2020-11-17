@@ -136,13 +136,15 @@ const searchBar = document.getElementById('search');
 
 searchBar.addEventListener('keyup', (e) => {
    const searchString = e.target.value;
-   const dataf = data.filter(card => {
-      return card.email.includes(searchString || card.name.first.includes(searchString) || card.name.last.includes(searchString));
-      
-   }); 
-   list = dataf;
-   addPagination();
-   showPage(showNumberOnPage, 1);
+   if(!e.target.value){
+      const dataf = data.filter(card => {
+         return card.email.includes(searchString || card.name.first.includes(searchString) || card.name.last.includes(searchString));
+         
+      }); 
+      list = dataf;
+      addPagination();
+      showPage(showNumberOnPage, 1);
+   }
    //console.log(dataFiltered)
    
 });
