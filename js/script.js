@@ -96,6 +96,15 @@ function showPage(list, page) {
 
   const searchBar = document.getElementById('search');
 
+
+function updateHeaderAmount(list){
+   let h2 = document.getElementsByTagName('h2')[0];
+   console.log(h2);
+   h2.textContent = `Student ${list.length} Amount`
+}
+
+updateHeaderAmount(list);
+
 searchBar.addEventListener('keyup', (e) => {
    const searchString = e.target.value;
    if(searchString != ''){
@@ -107,11 +116,13 @@ searchBar.addEventListener('keyup', (e) => {
      console.log(list);
      addPagination();
      showPage(list, 1);
+     updateHeaderAmount(dataf);
      //console.log(dataFiltered)
      
    } else {
        list = data;
        addPagination();
+       updateHeaderAmount(list);
         showPage(list, 1);
    }
 });
