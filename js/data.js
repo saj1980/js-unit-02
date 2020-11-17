@@ -11,7 +11,7 @@ const data = [
       first: "Ethel",
       last: "Dean",
     },
-    email: "ethel.dean@example.com",
+    email: "ethel.dean@test.com",
     registered: {
       date: "12-15-2005",
       age: 15,

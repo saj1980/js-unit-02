@@ -24,10 +24,14 @@
           </label>
         
         -->
+        <label for="search" class="student-search">
+            <input id="search" placeholder="Search by name...">
+            <button type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
+          </label>
 
     </header>
     
-    <ul class="student-list">
+    <ul class="student-list" id='list'>
 
       <!-- Dynamically insert students here
         
@@ -45,6 +49,7 @@
         </li>
 
       -->
+      
         
     </ul>
 
@@ -54,21 +59,18 @@
         <!-- Dynamically insert pagination buttons here
 
           EXAMPLE - Two pagination buttons, one with active class, one without:
-            
-          <li>
-            <button type="button" class="active">1</button>
-          </li>
-          <li>
-            <button type="button">2</button>
-          </li>
       
         -->
+        <li>
+          <button type="button" class="active">1</button>
+        </li>
+        
 
       </ul>
     </div>
     
   </div>
   <script src="js/data.js"></script> 
-  <script src="js/script.js"></script>
+  <script src="js/scriptv1.js"></script>
 </body>
 </html>
