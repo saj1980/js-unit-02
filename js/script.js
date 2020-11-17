@@ -34,6 +34,8 @@ function showPage(list, page) {
                </div>
             </li>
         `;
+          } else {
+             return elem.innerHTML += 'no results';
           }
         }
     
