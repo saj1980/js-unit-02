@@ -71,26 +71,7 @@ function showPage(list, page) {
         active.className = 'active';
     }
  
-  
-    // create an event listener on the `link-list` element
-   //  document.querySelector(".link-list").addEventListener("click", function (e){
-   //     //Remove alle active classes
-       
-   //     let buttons = document.getElementsByTagName('button');
-   //     console.log(e.target.value)
-   //     if(e.target.value !== undefined || e.target.value !== 0){
-   //       for(let i = 0; i < buttons.length; i++){
-   //          buttons[i].className = '';
-   //          //Find button
-   //         let but = e.path[1].getElementsByTagName('button');
-   //         let pageNumber = but[0].textContent;
-   //         but[0].className = 'active'; 
-   //         showPage(list, pageNumber);
-   //       }
-   //     }
-       
- 
-   //  });
+
 
     const addPaginationItem = document.getElementsByTagName('button');
     
@@ -103,13 +84,6 @@ function showPage(list, page) {
          e.target.className = 'active'
       });
     }
-
-
- 
-      // if the click target is a button:
-        // remove the "active" class from the previous button
-        // add the active class to the clicked button
-        // call the showPage function passing the `list` parameter and page to display as arguments
   }
   addPagination();
 
