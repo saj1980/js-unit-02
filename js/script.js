@@ -75,15 +75,19 @@ function showPage(list, page) {
     // create an event listener on the `link-list` element
     document.querySelector(".link-list").addEventListener("click", function (e){
        //Remove alle active classes
+       
        let buttons = document.getElementsByTagName('button');
-       for(let i = 0; i < buttons.length; i++){
-          buttons[i].className = '';
+       if(e.target.value !== undefined){
+         for(let i = 0; i < buttons.length; i++){
+            buttons[i].className = '';
+            //Find button
+           let but = e.path[1].getElementsByTagName('button');
+           let pageNumber = but[0].textContent;
+           but[0].className = 'active'; 
+           showPage(list, pageNumber);
+         }
        }
-       //Find button
-       let but = e.path[1].getElementsByTagName('button');
-       let pageNumber = but[0].textContent;
-       but[0].className = 'active'; 
-       showPage(list, pageNumber);
+       
  
     });
  
@@ -99,8 +103,11 @@ function showPage(list, page) {
 
 function updateHeaderAmount(list){
    let h2 = document.getElementsByTagName('h2')[0];
-   console.log(h2);
-   h2.textContent = `Student ${list.length} Amount`
+   h2.textContent = `Student ${list.length} Amount`;
+   if(list.length == 0){
+      console.log(document.querySelector('.link-list').innerHTML = 'No results');
+      
+   }
 }
 
 updateHeaderAmount(list);
@@ -113,16 +120,15 @@ searchBar.addEventListener('keyup', (e) => {
         
      }); 
      list = dataf;
-     console.log(list);
+     
      addPagination();
      showPage(list, 1);
      updateHeaderAmount(dataf);
-     //console.log(dataFiltered)
      
    } else {
-       list = data;
-       addPagination();
-       updateHeaderAmount(list);
-        showPage(list, 1);
+      list = data;
+      addPagination();
+      updateHeaderAmount(list);
+      showPage(list, 1);
    }
 });
