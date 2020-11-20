@@ -105,7 +105,7 @@ function updateHeaderAmount(list){
    let h2 = document.getElementsByTagName('h2')[0];
    h2.textContent = `Student ${list.length} Amount`;
    if(list.length == 0){
-      console.log(document.querySelector('.link-list').innerHTML = 'No results');
+      document.querySelector('.link-list').innerHTML = 'No results';
       
    }
 }
