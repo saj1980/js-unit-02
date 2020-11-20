@@ -73,23 +73,38 @@ function showPage(list, page) {
  
   
     // create an event listener on the `link-list` element
-    document.querySelector(".link-list").addEventListener("click", function (e){
-       //Remove alle active classes
+   //  document.querySelector(".link-list").addEventListener("click", function (e){
+   //     //Remove alle active classes
        
-       let buttons = document.getElementsByTagName('button');
-       if(e.target.value !== undefined){
-         for(let i = 0; i < buttons.length; i++){
-            buttons[i].className = '';
-            //Find button
-           let but = e.path[1].getElementsByTagName('button');
-           let pageNumber = but[0].textContent;
-           but[0].className = 'active'; 
-           showPage(list, pageNumber);
-         }
-       }
+   //     let buttons = document.getElementsByTagName('button');
+   //     console.log(e.target.value)
+   //     if(e.target.value !== undefined || e.target.value !== 0){
+   //       for(let i = 0; i < buttons.length; i++){
+   //          buttons[i].className = '';
+   //          //Find button
+   //         let but = e.path[1].getElementsByTagName('button');
+   //         let pageNumber = but[0].textContent;
+   //         but[0].className = 'active'; 
+   //         showPage(list, pageNumber);
+   //       }
+   //     }
        
  
-    });
+   //  });
+
+    const addPaginationItem = document.getElementsByTagName('button');
+    
+    for(let i = 0; i < addPaginationItem.length; i++){
+      addPaginationItem[i].addEventListener('click', (e) => {
+
+         for(let i = 0; i < addPaginationItem.length; i++){
+            addPaginationItem[i].className=''
+         }
+         e.target.className = 'active'
+      });
+    }
+
+
  
       // if the click target is a button:
         // remove the "active" class from the previous button
