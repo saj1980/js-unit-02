@@ -81,7 +81,8 @@ function showPage(list, page) {
          for(let i = 0; i < addPaginationItem.length; i++){
             addPaginationItem[i].className=''
          }
-         e.target.className = 'active'
+         e.target.className = 'active';
+         showPage(list, i);
       });
     }
   }
